@@ -26,6 +26,7 @@
     </div>
     <div class="input-group flex-nowrap mx-auto" style="width: 400px">
       <form action="" method="post">
+        {% csrf_token %} 
         {{updateForm.task}}
         <button class="btn btn-primary" type="submit">Update</button>
       </form>
