@@ -1,1 +1,1 @@
-web: gunicorn vidly.wsgi --log-file -
+web: gunicorn todos.wsgi --log-file -
