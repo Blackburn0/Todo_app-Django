@@ -17,13 +17,9 @@
     </div>
     
     <div class="input-group flex-nowrap mx-auto" style="width: 400px;">
-        <!-- <span class="input-group-text" id="addon-wrapping">Task</span>
-        <input type="text" class="form-control" placeholder="Add todo item..." aria-label="Username" aria-describedby="addon-wrapping"> -->
-              
         <form action="" method="post">
             {% csrf_token %}
             {{form.task}}
-            <!-- <button type="submit">Submit</button> -->
             <button class="btn btn-outline-primary" type="submit" id="button-addon1">Add task</button>
         </form>
 
@@ -43,16 +39,6 @@
                 <th scope="col">Actions</th>
               </tr>
             </thead>
-            <!-- {% for todo in tasks %}
-                <p>{{todo.task}}</p>
-                <a href="{% url 'deleteItem' todo.id %}">
-                    <button>Delete</button>
-                </a>
-                <a href="{% url 'updateItem' todo.id %}">
-                    <button>Update</button>
-                </a>
-            {% endfor %} -->
-
             <tbody>
             {% for todo in tasks %}
               <tr>
