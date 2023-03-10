@@ -1,13 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Mytodo
 from .forms import TodoForm
-from django.views.decorators.csrf import csrf_exempt
-from django.views.decorators.csrf import csrf_protect
+
 
 
 # Create your views here.
-@csrf_protect
-@csrf_exempt
 def alltodos(request):
     tasks = Mytodo.objects.all()
     form = TodoForm()
