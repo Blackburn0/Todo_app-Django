@@ -127,7 +127,7 @@ STATICFILES_DIR = [
 
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://todoapp-django-production.up.railway.app/'
+    'https://todoapp-django-production.up.railway.app'
 ]
 
 # Default primary key field type

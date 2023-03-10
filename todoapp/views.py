@@ -1,11 +1,8 @@
 from django.shortcuts import render, redirect
 from .models import Mytodo
 from .forms import TodoForm
-from django.views.decorators.csrf import csrf_protect 
-
 
 # Create your views here.
-@csrf_protect
 def alltodos(request):
     tasks = Mytodo.objects.all()
     form = TodoForm()
@@ -15,7 +12,7 @@ def alltodos(request):
             form.save()
     return render(request, 'alltodo.html', {'tasks': tasks, 'form': form})
 
-@csrf_protect
+
 def deleteItem(request, pk):
     try:
         task = Mytodo.objects.get(id = pk)
@@ -25,7 +22,6 @@ def deleteItem(request, pk):
     return redirect('alltodo')
 
 
-@csrf_protect
 def updateItem(request, pk):
     todo = Mytodo.objects.get(id = pk)
     updateForm = TodoForm(instance=todo)
