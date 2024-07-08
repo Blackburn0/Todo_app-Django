@@ -1,7 +1,10 @@
 from django.db import models
 
+
 # Create your models here.
-class Mytodo(models.Model):
-    task = models.CharField(max_length=50)
+class Todo(models.Model):
+    name = models.CharField(max_length=100)
+    task = models.TextField()
+
     def __str__(self):
-        return self.task
+        return self.name

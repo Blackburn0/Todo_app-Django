@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My_Todo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<body>
+<header class="text-gray-600 body-font border-b">
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+          <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0" href="{% url 'home' %}">
+            <span class="ml-3 text-xl">📌 My ToDo</span>
+          </a>
+          <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+          
+            <p class="mr-4">{{ user.username }}</p>
+            
+            {% if not user.is_authenticated %}
+            <a href="{% url 'login' %}" class="mr-5 hover:text-gray-900">Login</a>
+            <a href="{% url 'signup' %}" class="mr-5 hover:text-gray-900">Signup</a>
+
+            {% else %}
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="flex-shrink-0 text-dark border-0 py-1 px-5 focus:outline-none hover:bg-indigo-600 hover:text-white rounded mt-10 sm:mt-0">Log out</button>
+              </form>
+            {% endif %}
+        </div>
+      </header>
+      <br><br><br><br><br><br><br>
+    <div class="container">
+      <div class="lg:w-2/3 flex flex-col text-center sm:flex-row sm:items-center items-start mx-auto">
+        <h1 class="flex-grow sm:pr-16  text-2xl font-medium title-font text-gray-900">
+          Welcome to TaskMaster!  <br> Your ultimate productivity partner.
+          <br>
+          <br>
+        {% if user.is_authenticated %}
+          <a href="{% url 'todo-list' %}" class="bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+            <button class="">View you task</button>
+          </a>  
+        {% endif %}
+        </h1>
+        
+    </div>
+   </div>
+</body>
+</html>

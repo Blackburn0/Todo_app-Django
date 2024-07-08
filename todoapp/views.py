@@ -1,34 +1,33 @@
 from django.shortcuts import render, redirect
-from .models import Mytodo
-from .forms import TodoForm
+from django.views.generic import TemplateView, CreateView, UpdateView, DeleteView, ListView, DetailView
+from .models import Todo
+from django.urls import reverse_lazy
+
 
 # Create your views here.
 
-def alltodos(request):
-    tasks = Mytodo.objects.all()
-    form = TodoForm()
-    if request.method == 'POST':
-        form = TodoForm(request.POST)
-        if form.is_valid():
-            form.save()
-    return render(request, 'alltodo.html', {'tasks': tasks, 'form': form})
+class HomeView(TemplateView):
+    template_name = 'todoapp/index.html'
 
 
-def deleteItem(request, pk):
-    try:
-        task = Mytodo.objects.get(id = pk)
-    except Mytodo.DoesNotExist:
-        task = None
-    task.delete()
-    return redirect('alltodo')
+class TodoListView(ListView):
+    model = Todo
+
+class TodoDetailView(DetailView):
+    model = Todo
+
+class TodoCreateView(CreateView):
+    model = Todo
+    fields = "__all__"
+    success_url = reverse_lazy('todo-list')
 
 
-def updateItem(request, pk):
-    todo = Mytodo.objects.get(id = pk)
-    updateForm = TodoForm(instance=todo)
-    if request.method == 'POST':
-        updateForm = TodoForm(request.POST, instance=todo)
-        if updateForm.is_valid():
-            updateForm.save()
-            return redirect('alltodo')
-    return render(request, 'updateItem.html', {'todo':todo, 'updateForm':updateForm})
+class TodoUpdateView(UpdateView):
+    model = Todo
+    fields = "__all__"
+    success_url = reverse_lazy('todo-list')
+
+
+class TodoDeleteView(DeleteView):
+    model = Todo
+    success_url = reverse_lazy('todo-list')
