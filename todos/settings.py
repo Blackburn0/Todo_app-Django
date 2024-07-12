@@ -79,10 +79,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'todos.wsgi.application'
 
 # api/wsgi.py
-app = get_wsgi_application()
 
 # api/settings.py
-WSGI_APPLICATION = 'api.wsgi.app'
+WSGI_APPLICATION = 'todo.wsgi.app'
 
 
 # Database
@@ -136,7 +135,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, "static")
-    ]
+]
 
 
 # Default primary key field type
