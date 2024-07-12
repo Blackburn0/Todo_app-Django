@@ -78,6 +78,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todos.wsgi.application'
 
+# api/wsgi.py
+app = get_wsgi_application()
+
+# api/settings.py
+WSGI_APPLICATION = 'api.wsgi.app'
+
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
