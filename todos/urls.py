@@ -27,3 +27,10 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/signup/', SignupView.as_view(), name='signup'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    
+# Admin Display
+admin.site.site_header = 'My Name'         
+admin.site.index_title = 'Portfolio'
+admin.site.site_title = 'Sandeep Shaw' 
