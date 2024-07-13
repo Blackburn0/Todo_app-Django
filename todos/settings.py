@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-vb3kftc7d+)r-@5ay2e(6cnh+(@dr#d!kr3j^6u0^d$yyq$fsg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'True'
 
-ALLOWED_HOSTS = ['.vercel.app', 'localhost', '.now.sh', '127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -85,11 +85,11 @@ WSGI_APPLICATION = 'todos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('POSTGRES_DATABASE'),
-        'USER': os.getenv('POSTGRES_USER'),
-        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
-        'HOST': os.getenv('POSTGRES_HOST'),
-        'PORT': os.getenv('POSTGRES_DB_PORT'),
+        'NAME': 'django-db',
+        'USER': 'Hamzat',
+        'PASSWORD': '*Hamzat2003*',
+        # 'HOST': os.getenv('POSTGRES_HOST'),
+        # 'PORT': os.getenv('POSTGRES_DB_PORT'),
     }
 }
 
