@@ -93,10 +93,8 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todos.wsgi.application'
 
-# api/wsgi.py
-
 # api/settings.py
-WSGI_APPLICATION = 'todos.wsgi.app'
+# WSGI_APPLICATION = 'todos.wsgi.app'
 
 
 # Database
@@ -148,9 +146,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
 
 STATICFILES_DIR = [
     os.path.join(BASE_DIR, "static")
